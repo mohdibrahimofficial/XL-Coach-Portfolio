@@ -6,8 +6,11 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --gradient-start: #000000;
+  --gradient-middle: #111111;
+  --gradient-end: #000000;
 }
 
 @theme inline {
@@ -19,13 +22,222 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Monochromatic black and white theme overrides */
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-gray-50 {
+  background-color: #111111;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.border-black {
+  border-color: #ffffff;
+}
+
+.border-white {
+  border-color: #ffffff;
+}
+
+.border-gray-200 {
+  border-color: #333333;
+}
+
+.border-gray-300 {
+  border-color: #444444;
+}
+
+.text-gray-600 {
+  color: #aaaaaa;
+}
+
+.text-gray-700 {
+  color: #bbbbbb;
+}
+
+.text-gray-400 {
+  color: #999999;
+}
+
+.text-gray-500 {
+  color: #aaaaaa;
+}
+
+.text-gray-300 {
+  color: #cccccc;
+}
+
+/* Additional monochromatic styles */
+.hover\:bg-gray-100:hover {
+  background-color: #111111;
+}
+
+.hover\:text-gray-800:hover {
+  color: #dddddd;
+}
+
+.focus\:ring-black:focus {
+  --tw-ring-color: #ffffff;
+}
+
+/* Form elements */
+input, textarea {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
+  background-color: #111111;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #666666;
+}
+
+/* Links */
+a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #cccccc;
+}
+
+/* Cards */
+.card {
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  transition: all 0.3s ease;
+}
+
+/* Shadows for depth (using white) */
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.hover\:shadow-md:hover {
+  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.25);
+}
+
+/* Inverted colors for content sections */
+.content-section {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.content-card {
+  background-color: #111111;
+  border: 1px solid #333333;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+}
+
+/* Selection highlight */
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Banner slider (global, SSR-safe) */
+@keyframes banner-fadeSlide {
+  0% { opacity: 0; transform: translateY(10px); }
+  2% { opacity: 1; transform: translateY(0); }
+  33.333% { opacity: 1; }
+  35.333% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@keyframes banner-pulseDot {
+  0%, 100% { opacity: .4; transform: scale(1); }
+  2% { opacity: 1; transform: scale(1.15); }
+  33.333% { opacity: 1; }
+  35.333% { opacity: .4; }
+}
+
+.banner-slider-root:hover .banner-slide,
+.banner-slider-root:hover .banner-dot {
+  animation-play-state: paused;
+}
+
+.banner-slide { position: absolute; inset: 0; opacity: 0; backface-visibility: hidden; will-change: opacity, transform; }
+.banner-slide-0 { animation: banner-fadeSlide 15s linear infinite; animation-delay: 0s; }
+.banner-slide-1 { animation: banner-fadeSlide 15s linear infinite; animation-delay: 5s; }
+.banner-slide-2 { animation: banner-fadeSlide 15s linear infinite; animation-delay: 10s; }
+
+.banner-dot { width: 16px; height: 16px; border-radius: 9999px; border: 2px solid #fff; background: transparent; display: inline-block; }
+.banner-dot-0 { animation: banner-pulseDot 15s linear infinite; animation-delay: 0s; }
+.banner-dot-1 { animation: banner-pulseDot 15s linear infinite; animation-delay: 5s; }
+.banner-dot-2 { animation: banner-pulseDot 15s linear infinite; animation-delay: 10s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-slide { animation: none !important; opacity: 0; }
+  .banner-slide-0 { opacity: 1; }
+  .banner-dot { animation: none !important; opacity: .4; }
+  .banner-dot-0 { opacity: 1; }
 }
