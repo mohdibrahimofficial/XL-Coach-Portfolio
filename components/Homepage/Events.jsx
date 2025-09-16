@@ -1,4 +1,5 @@
 import React from 'react';
+import EventsCarouselClient from './EventsCarouselClient';
 
 const Events = () => {
   // Sample events data - in a real application this would come from a CMS or API
@@ -29,7 +30,104 @@ const Events = () => {
       location: "Miami, FL",
       description: "A weekend retreat focused on transforming limiting beliefs and building success mindset.",
       price: "$499"
+    },
+    {
+      id: 4,
+      title: "Executive Communication Bootcamp",
+      date: "September 12, 2025",
+      time: "9:30 AM - 4:30 PM",
+      location: "Chicago, IL",
+      description: "Master persuasive communication and executive presence.",
+      price: "$249"
+    },
+    {
+      id: 5,
+      title: "High-Performance Habits Lab",
+      date: "September 26, 2025",
+      time: "10:00 AM - 3:00 PM",
+      location: "Austin, TX",
+      description: "Build sustainable habits that compound results.",
+      price: "$179"
+    },
+    {
+      id: 6,
+      title: "Women in Leadership Forum",
+      date: "October 10, 2025",
+      time: "9:00 AM - 5:00 PM",
+      location: "San Francisco, CA",
+      description: "Strategies and networks for advancing women leaders.",
+      price: "$329"
+    },
+    {
+      id: 7,
+      title: "Sales Mindset Intensive",
+      date: "October 24, 2025",
+      time: "9:00 AM - 1:00 PM",
+      location: "Seattle, WA",
+      description: "Shift beliefs to consistently hit your revenue goals.",
+      price: "$159"
+    },
+    {
+      id: 8,
+      title: "Startup Leadership Sprint",
+      date: "November 7, 2025",
+      time: "11:00 AM - 4:00 PM",
+      location: "Denver, CO",
+      description: "Lead fast-moving teams with clarity and confidence.",
+      price: "$209"
+    },
+    {
+      id: 9,
+      title: "Mindfulness for Leaders",
+      date: "November 21, 2025",
+      time: "8:30 AM - 12:30 PM",
+      location: "Remote / Live Online",
+      description: "Calm focus and resilience under pressure.",
+      price: "$129"
+    },
+    {
+      id: 10,
+      title: "Career Clarity Weekend",
+      date: "December 6, 2025",
+      time: "9:00 AM - 6:00 PM",
+      location: "Boston, MA",
+      description: "Define your next role with purpose and a plan.",
+      price: "$389"
+    },
+    {
+      id: 11,
+      title: "Team Culture Reset",
+      date: "December 13, 2025",
+      time: "10:00 AM - 4:00 PM",
+      location: "Portland, OR",
+      description: "Rebuild trust, accountability, and energy in teams.",
+      price: "$279"
+    },
+    {
+      id: 12,
+      title: "Personal Branding for Executives",
+      date: "January 10, 2026",
+      time: "9:00 AM - 1:00 PM",
+      location: "Remote / Live Online",
+      description: "Clarify and communicate your value in any room.",
+      price: "$199"
+    },
+    {
+      id: 13,
+      title: "Negotiation Masterclass",
+      date: "January 24, 2026",
+      time: "9:00 AM - 5:00 PM",
+      location: "Atlanta, GA",
+      description: "Win better deals through principled negotiation.",
+      price: "$349"
     }
+  ];
+
+  // Distribute events across exactly 3 slides so cards aren't full-width
+  const slidesData = [
+    events.slice(0, 5),
+    events.slice(5, 9),
+    events.slice(9)
   ];
 
   return (
@@ -43,66 +141,7 @@ const Events = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {events.map((event) => (
-            <div key={event.id} className="group relative">
-              <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-2xl shadow-black/30">
-                <div className="relative h-full rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/10">
-                  {/* Accent orbs */}
-                  <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/15 blur-2xl"></div>
-                  <div className="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-2xl"></div>
-
-                  <div className="pb-0 pt-8 px-8">
-                    <h3 className="text-2xl font-bold text-white mb-4 tracking-wide">
-                      {event.title}
-                    </h3>
-
-                    <div className="mt-4 space-y-2">
-                      <p className="text-gray-300 font-semibold flex items-center">
-                        <svg className="w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                        {event.date}
-                      </p>
-                      <p className="text-gray-400 flex items-center">
-                        <svg className="w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                        </svg>
-                        {event.time}
-                      </p>
-                      <p className="text-gray-400 flex items-center">
-                        <svg className="w-5 h-5 mr-2 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        </svg>
-                        {event.location}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="pt-6 pb-8 px-8">
-                    <div className="my-6 h-px w-full bg-white/10"></div>
-                    <p className="text-gray-300 mb-6">{event.description}</p>
-                    <div className="flex justify-between items-center">
-                      <span className="text-white font-bold text-xl tracking-wider">{event.price}</span>
-                      <button 
-                        className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold rounded-full cursor-pointer px-6 py-2 tracking-wider shadow-lg hover:shadow-white/10"
-                      >
-                        REGISTER
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="text-center mt-16">
-          <button className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-3 px-10 rounded-full tracking-wider">
-            VIEW ALL EVENTS
-          </button>
-        </div>
+        <EventsCarouselClient events={events} />
       </div>
     </div>
   );

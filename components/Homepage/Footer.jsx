@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-black text-white py-16 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12">
           <div className="md:col-span-1">
             <h3 className="text-2xl font-bold mb-6 tracking-wider">COACH PORTFOLIO</h3>
             <p className="text-gray-300 mb-6 font-light">
@@ -120,11 +120,11 @@ const Footer = () => {
           <p className="text-gray-400">
             &copy; {new Date().getFullYear()} Coach Portfolio. All rights reserved.
           </p>
-          <div className="mt-4 flex justify-center space-x-8">
+          {/* <div className="mt-4 flex justify-center space-x-8">
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">Privacy Policy</a>
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">Terms of Service</a>
             <a href="#" className="text-gray-500 hover:text-gray-300 text-sm">Sitemap</a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

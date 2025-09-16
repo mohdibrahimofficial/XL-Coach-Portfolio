@@ -241,3 +241,43 @@ a:hover {
   .banner-dot { animation: none !important; opacity: .4; }
   .banner-dot-0 { opacity: 1; }
 }
+
+/* Events carousel (CSS-only, SSR-safe) */
+.events-carousel .slides { display:flex; width:300%; transform: translateX(0%); transition: transform 450ms ease; }
+.events-carousel .slide { width:100%; flex: 0 0 100%; }
+
+/* Controls positioning */
+.events-carousel .controls label { position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.95); color:#000; padding:8px 12px; border-radius:9999px; font-weight:700; line-height:1; cursor:pointer; box-shadow:0 10px 15px -3px rgba(0,0,0,.2); }
+.events-carousel .controls .prev { left: 12px; }
+.events-carousel .controls .next { right: 12px; }
+.events-carousel .controls label { display:none; user-select:none; }
+
+/* Dots */
+.events-carousel .dots { display:flex; gap:8px; justify-content:center; margin-top:16px; }
+.events-carousel .dot { width:10px; height:10px; border-radius:9999px; background:rgba(255,255,255,0.35); cursor:pointer; display:inline-block; }
+
+/* Slide switching */
+.events-carousel #slide-1:checked ~ .slides { transform: translateX(0%); }
+.events-carousel #slide-2:checked ~ .slides { transform: translateX(-100%); }
+.events-carousel #slide-3:checked ~ .slides { transform: translateX(-200%); }
+
+/* Show the correct controls for each slide */
+.events-carousel #slide-1:checked ~ .controls .next-1 { display:inline-block; }
+.events-carousel #slide-1:checked ~ .controls .prev-1 { display:none; }
+
+.events-carousel #slide-2:checked ~ .controls .prev-2 { display:inline-block; }
+.events-carousel #slide-2:checked ~ .controls .next-2 { display:inline-block; }
+
+.events-carousel #slide-3:checked ~ .controls .prev-3 { display:inline-block; }
+.events-carousel #slide-3:checked ~ .controls .next-3 { display:none; }
+
+/* Active dot */
+.events-carousel #slide-1:checked ~ .dots label:nth-child(1) { background:#ffffff; }
+.events-carousel #slide-2:checked ~ .dots label:nth-child(2) { background:#ffffff; }
+.events-carousel #slide-3:checked ~ .dots label:nth-child(3) { background:#ffffff; }
+
+/* Responsive: keep single slide per view for simplicity */
+@media (min-width: 768px) {
+  .events-carousel .slides { width:300%; }
+  .events-carousel .slide { width:100%; }
+}

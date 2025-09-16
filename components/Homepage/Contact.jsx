@@ -6,8 +6,12 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,12 +21,30 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setError('');
+    setSuccess('');
+    setLoading(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data?.error || 'Failed to send message');
+      }
+
+      setSuccess('Thank you! Your message has been sent successfully.');
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      setError(err.message || 'Something went wrong. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -76,6 +98,20 @@ const Contact = () => {
                   </div>
 
                   <div>
+                    <label htmlFor="phone" className="block text-white mb-2 font-semibold tracking-wider">Mobile Number</label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      placeholder="e.g., 555-123-4567"
+                      value={formData.phone}
+                      maxLength={10}
+                      onChange={handleChange}
+                      className="w-full px-5 py-4 rounded-xl bg-black/60 border border-white/10 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-white/60 focus:border-white/40 transition-all"
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="message" className="block text-white mb-2 font-semibold tracking-wider">Message</label>
                     <textarea
                       id="message"
@@ -91,10 +127,19 @@ const Contact = () => {
 
                   <button 
                     type="submit"
-                    className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold rounded-full w-full py-5 cursor-pointer text-lg tracking-wider shadow-lg hover:shadow-white/10"
+                    disabled={loading}
+                    aria-busy={loading}
+                    className={`bg-white text-black border-2 border-white transition-all duration-300 font-semibold rounded-full w-full py-5 cursor-pointer text-lg tracking-wider shadow-lg hover:shadow-white/10 ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-transparent hover:text-white'}`}
                   >
-                    SEND MESSAGE
+                    {loading ? 'SENDING...' : 'SEND MESSAGE'}
                   </button>
+
+                  {success && (
+                    <p className="text-green-400 text-sm">{success}</p>
+                  )}
+                  {error && (
+                    <p className="text-red-400 text-sm">{error}</p>
+                  )}
                 </form>
               </div>
             </div>
@@ -159,11 +204,11 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="mt-10">
+                {/* <div className="mt-10">
                   <button className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-3 px-8 rounded-full tracking-wider shadow-lg hover:shadow-white/10">
                     SCHEDULE A CALL
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

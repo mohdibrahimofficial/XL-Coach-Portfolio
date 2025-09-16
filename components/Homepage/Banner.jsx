@@ -30,14 +30,14 @@ const Banner = () => {
   // CSS-only slider via keyframes for SSR safety
 
   return (
-    <div className="relative bg-black py-36 md:py-40 px-6 overflow-hidden">
+    <div id="home" className="banner-section relative bg-black py-20 md:py-40 px-6 overflow-visible md:overflow-hidden">
       {/* Decorative gradient orbs */}
       <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div className="pointer-events-none absolute -bottom-32 -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="banner-slider-root relative min-h-[560px] md:min-h-[540px]">
+        <div className="banner-slider-root relative min-h-[460px] md:min-h-[540px]">
           {slides.map((slide, index) => (
             <div key={slide.id} className={`banner-slide banner-slide-${index} grid md:grid-cols-2 gap-10 items-center z-0`}>
               {/* Left: Text content */}
@@ -47,30 +47,34 @@ const Banner = () => {
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                   Premium Coaching
                 </div>
-                <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight bg-gradient-to-r from-white via-white to-indigo-200 bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-tight bg-gradient-to-r from-white via-white to-indigo-200 bg-clip-text text-transparent drop-shadow-[0_2px_20px_rgba(255,255,255,0.15)]">
                   {slide.title}
                 </h1>
                 {/* Accent underline */}
                 <div className="mx-auto md:mx-0 h-1 w-28 bg-gradient-to-r from-white via-white/70 to-transparent rounded-full mb-8"></div>
-                <p className="text-xl text-gray-300 max-w-3xl md:max-w-xl mx-auto md:mx-0 mb-12 font-light">
+                <p className="text-base sm:text-lg text-gray-300 max-w-3xl md:max-w-xl mx-auto md:mx-0 mb-8 md:mb-12 font-light">
                   {slide.subtitle}
                 </p>
                 <div className="flex justify-center md:justify-start gap-6 mb-8 md:mb-10">
-                  <button 
-                    className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold text-lg px-10 py-4 rounded-full tracking-wider shadow-lg hover:shadow-white/20"
+                  <a
+                    href="#contact"
+                    aria-label="Go to Contact section"
+                    className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-full tracking-wider shadow-lg hover:shadow-white/20"
                   >
                     {slide.ctaText}
-                  </button>
-                  <button 
-                    className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-lg px-10 py-4 rounded-full tracking-wider hover:shadow-lg hover:shadow-white/10"
+                  </a>
+                  <a
+                    href="#testimonials"
+                    aria-label="Go to Videos section"
+                    className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-full tracking-wider hover:shadow-lg hover:shadow-white/10"
                   >
                     WATCH VIDEO
-                  </button>
+                  </a>
                 </div>
               </div>
 
-              {/* Right: Image */}
-              <div className="mt-6 md:mt-0 flex items-center justify-center relative px-1">
+              {/* Right: Image (hidden on mobile) */}
+              <div className="hidden md:flex md:mt-0 items-center justify-center relative px-1">
                 {/* Accent behind image */}
                 <div className="pointer-events-none absolute -z-0 w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/5 blur-2xl"></div>
                 <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/20 blur-2xl"></div>
@@ -82,7 +86,7 @@ const Banner = () => {
                         alt="Professional coach portrait"
                         width={960}
                         height={1280}
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-contain md:object-cover"
                         priority={index === 0}
                         sizes="(min-width: 768px) 420px, 80vw"
                       />
@@ -96,8 +100,8 @@ const Banner = () => {
           {/* Animations moved to global CSS (app/globals.css) for SSR safety */}
         </div>
 
-        {/* Slide indicators synced with CSS timing */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-40 md:bottom-44 z-20 flex justify-center space-x-3">
+        {/* Slide indicators synced with CSS timing (hidden on mobile) */}
+        <div className="hidden md:flex pointer-events-none absolute inset-x-0 md:bottom-44 z-20 justify-center space-x-3">
           {slides.map((s, i) => (
             <span key={s.id} className={`banner-dot banner-dot-${i}`}></span>
           ))}
