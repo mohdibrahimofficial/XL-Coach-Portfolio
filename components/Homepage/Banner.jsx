@@ -30,7 +30,7 @@ const Banner = () => {
   // CSS-only slider via keyframes for SSR safety
 
   return (
-    <div id="home" className="banner-section relative bg-black py-20 md:py-40 px-6 overflow-visible md:overflow-hidden">
+    <div id="home" className="banner-section relative bg-black py-20 md:py-40 px-6 overflow-hidden">
       {/* Decorative gradient orbs */}
       <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div className="pointer-events-none absolute -bottom-32 -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div>
