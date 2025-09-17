@@ -281,3 +281,80 @@ a:hover {
   .events-carousel .slides { width:300%; }
   .events-carousel .slide { width:100%; }
 }
+
+/* Scoped light form overrides for Contact section */
+.light-form input,
+.light-form textarea {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid rgba(0,0,0,0.2) !important;
+}
+
+.light-form input::placeholder,
+.light-form textarea::placeholder {
+  color: #6b7280 !important; /* gray-500 */
+}
+
+.light-form input:focus,
+.light-form textarea:focus {
+  outline: none !important;
+  border-color: rgba(0,0,0,0.4) !important;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.3) !important;
+  background-color: #ffffff !important;
+}
+
+/* Animated background shapes (used by SectionBackground) */
+@keyframes bg-float {
+  0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25% { transform: translate(12px, -10px) scale(1.03) rotate(1deg); }
+  50% { transform: translate(20px, -16px) scale(1.06) rotate(2deg); }
+  75% { transform: translate(10px, -8px) scale(1.03) rotate(1deg); }
+  100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+}
+
+@keyframes bg-drift {
+  0% { transform: translateX(0) }
+  50% { transform: translateX(24px) }
+  100% { transform: translateX(0) }
+}
+
+.bgshape-float-slow { animation: bg-float 18s ease-in-out infinite; }
+.bgshape-float-medium { animation: bg-float 12s ease-in-out infinite; }
+.bgshape-drift-slow { animation: bg-drift 28s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bgshape-float-slow,
+  .bgshape-float-medium,
+  .bgshape-drift-slow,
+  .bgshape-move-right,
+  .bgshape-move-top-left,
+  .bgshape-zigzag {
+    animation: none !important;
+  }
+}
+
+/* New motion paths */
+@keyframes bg-move-right {
+  0% { transform: translateX(-10px); opacity: .7; }
+  50% { transform: translateX(20px); opacity: 1; }
+  100% { transform: translateX(-10px); opacity: .7; }
+}
+
+@keyframes bg-move-top-left {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-24px, -18px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes bg-zigzag {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(14px, -8px); }
+  40% { transform: translate(28px, 0); }
+  60% { transform: translate(42px, -8px); }
+  80% { transform: translate(56px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.bgshape-move-right { animation: bg-move-right 16s ease-in-out infinite; will-change: transform, opacity; }
+.bgshape-move-top-left { animation: bg-move-top-left 18s ease-in-out infinite; will-change: transform; }
+.bgshape-zigzag { animation: bg-zigzag 14s linear infinite; will-change: transform; }

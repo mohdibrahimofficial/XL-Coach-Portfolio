@@ -1,5 +1,7 @@
 import React from 'react';
 import EventsCarouselClient from './EventsCarouselClient';
+import SectionBackground from '../common/SectionBackground';
+import WaveDivider from '../common/WaveDivider';
 
 const Events = () => {
   // Sample events data - in a real application this would come from a CMS or API
@@ -131,11 +133,16 @@ const Events = () => {
   ];
 
   return (
-    <div id="events" className="bg-black py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div id="events" className="relative bg-black py-24 px-6 overflow-hidden">
+      <WaveDivider position="top" height={100} fill="#ffffff" />
+
+      {/* Decorative gradient orbs (match banner style) */}
+      <div className="pointer-events-none absolute top-[80px] -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
+      {/* <div className="pointer-events-none absolute -bottom-32 -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div> */}
+      <SectionBackground theme="dark" />
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-white mb-6 tracking-wider">UPCOMING EVENTS</h2>
-          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Join me at these transformative events designed to accelerate your personal and professional growth
           </p>

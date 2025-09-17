@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import SectionBackground from '../common/SectionBackground';
 
 const Banner = () => {
   // In a real implementation, this would be dynamic data
@@ -35,6 +36,7 @@ const Banner = () => {
       <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
       <div className="pointer-events-none absolute -bottom-32 -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black"></div>
+      <SectionBackground theme="dark" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="banner-slider-root relative min-h-[460px] md:min-h-[540px]">
@@ -79,7 +81,7 @@ const Banner = () => {
                 <div className="pointer-events-none absolute -z-0 w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/5 blur-2xl"></div>
                 <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/20 blur-2xl"></div>
                 <div className="relative z-10 w-full max-w-md">
-                  <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl shadow-black/30">
+                  <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-sm shadow-black/20">
                     <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-[1px]">
                       <Image
                         src={slide.image}
@@ -101,7 +103,7 @@ const Banner = () => {
         </div>
 
         {/* Slide indicators synced with CSS timing (hidden on mobile) */}
-        <div className="hidden md:flex pointer-events-none absolute inset-x-0 md:bottom-44 z-20 justify-center space-x-3">
+        <div className="hidden  pointer-events-none absolute inset-x-0 md:bottom-44 z-20 justify-center space-x-3">
           {slides.map((s, i) => (
             <span key={s.id} className={`banner-dot banner-dot-${i}`}></span>
           ))}
@@ -116,7 +118,7 @@ const Banner = () => {
       </div>
 
       {/* Wave border at bottom */}
-      <div className="pointer-events-none absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+      {/* <div className="pointer-events-none absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
         <svg
           className="relative block w-[calc(100%+1.3px)] h-[100px]"
           xmlns="http://www.w3.org/2000/svg"
@@ -124,11 +126,11 @@ const Banner = () => {
           preserveAspectRatio="none"
         >
           <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.66,168.19-17.55,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C64.06,116.41,137,121.77,205.55,109.83,247,102.55,284.79,63.2,321.39,56.44Z"
+            d="M0,80 C200,20 400,140 600,80 C800,20 1000,140 1200,80 L1200,120 L0,120 Z"
             fill="#ffffff"
           ></path>
         </svg>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -7,25 +7,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 export default function EventsCarouselClient({ events = [] }) {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-
-  const updateAria = (swiper) => {
-    if (!prevRef.current || !nextRef.current) return;
-    prevRef.current.setAttribute("aria-disabled", swiper.isBeginning ? "true" : "false");
-    nextRef.current.setAttribute("aria-disabled", swiper.isEnd ? "true" : "false");
-  };
+  // Using selector-based navigation is more robust across devices (esp. mobile)
 
   return (
     <div className="relative">
       {/* Custom Navigation */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-10 flex items-center justify-between px-2 sm:px-4">
+      <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-2 sm:px-4">
         <button
           className="events-nav prev pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Previous"
-          aria-disabled="true"
           role="button"
-          ref={prevRef}
         >
           ‹
         </button>
@@ -33,7 +24,6 @@ export default function EventsCarouselClient({ events = [] }) {
           className="events-nav next pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Next"
           role="button"
-          ref={nextRef}
         >
           ›
         </button>
@@ -42,20 +32,7 @@ export default function EventsCarouselClient({ events = [] }) {
         modules={[Navigation, A11y]}
         spaceBetween={20}
         slidesPerView={1}
-        onBeforeInit={(swiper) => {
-          // Attach refs for custom navigation
-          // eslint-disable-next-line no-param-reassign
-          swiper.params.navigation.prevEl = prevRef.current;
-          // eslint-disable-next-line no-param-reassign
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
-        onInit={(swiper) => {
-          swiper.navigation.init();
-          swiper.navigation.update();
-          updateAria(swiper);
-        }}
-        onSlideChange={(swiper) => updateAria(swiper)}
-        navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+        navigation={{ prevEl: '.events-nav.prev', nextEl: '.events-nav.next' }}
         breakpoints={{
           640: { slidesPerView: 2, spaceBetween: 24 },
           1024: { slidesPerView: 3, spaceBetween: 28 },
@@ -64,10 +41,8 @@ export default function EventsCarouselClient({ events = [] }) {
         {events.map((event) => (
           <SwiperSlide key={event.id} className="h-full">
             <div className="group relative w-full h-full">
-              <div className="p-[1.5px] rounded-2xl bg-gradient-to-b from-white/25 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-md shadow-black/20 h-full">
-                <div className="relative rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/10 overflow-hidden h-full flex flex-col min-h-[360px]">
-                  {/* Top decorative bar */}
-                  <div className="h-1.5 w-full bg-gradient-to-r from-white/40 via-white/15 to-transparent" />
+              <div className="p-[1.5px] rounded-2xl bg-gradient-to-b from-white/15 via-white/8 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-sm shadow-black/20 h-full">
+                <div className="relative rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/12 overflow-hidden h-full flex flex-col min-h-[360px]">
 
                   {/* Accent orbs (soft) */}
                   <div className="pointer-events-none absolute -top-10 -right-10 w-28 h-28 rounded-full bg-white/8 blur-3xl"></div>
@@ -75,7 +50,7 @@ export default function EventsCarouselClient({ events = [] }) {
 
                   {/* Price badge (glassy) */}
                   <div className="absolute top-4 right-4">
-                    <span className="inline-block rounded-full bg-white/90 text-black text-xs font-bold tracking-wide px-3 py-1 border border-white/30 shadow-sm">
+                    <span className="inline-block rounded-full bg-white/85 text-black text-xs font-bold tracking-wide px-3 py-1 border border-white/20 shadow-sm">
                       {event.price}
                     </span>
                   </div>
@@ -109,7 +84,7 @@ export default function EventsCarouselClient({ events = [] }) {
                     <div className="my-4 h-px w-full bg-white/10"></div>
                     <div className="flex justify-end">
                       <button 
-                        className="border border-white/60 text-white hover:bg-white hover:text-black transition-all duration-300 font-semibold rounded-full cursor-pointer px-5 py-2 tracking-wide shadow-sm"
+                        className="border border-white text-white/95 hover:bg-white hover:text-black transition-all duration-300 font-semibold rounded-full cursor-pointer px-5 py-2 tracking-wide shadow-sm hover:shadow-md hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-white/30"
                       >
                         REGISTER
                       </button>

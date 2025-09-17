@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import SectionBackground from '../common/SectionBackground';
 
 const VideoTestimonials = () => {
   // Sample video testimonials data - in a real application this would come from a CMS or API
@@ -32,8 +33,12 @@ const VideoTestimonials = () => {
   const getThumb = (id) => `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
 
   return (
-    <div id="testimonials" className="bg-black py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <div id="testimonials" className="relative bg-black text-white py-24 px-6 overflow-hidden">
+      {/* Decorative gradient orbs (subtle) */}
+      {/* <div className="pointer-events-none absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div> */}
+      <div className="pointer-events-none absolute bottom-[80px] -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div>
+      <SectionBackground theme="dark" showTopLeftCircle={false} />
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-white mb-6 tracking-wider">VIDEO TESTIMONIALS</h2>
           <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
@@ -45,7 +50,7 @@ const VideoTestimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.map((t) => (
             <div key={t.id} className="group relative">
-              <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-2xl shadow-black/30">
+              <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-lg shadow-black/30">
                 <div className="relative h-full rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/10 overflow-hidden">
                   {/* Accent orbs */}
                   <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/15 blur-2xl"></div>
@@ -83,7 +88,7 @@ const VideoTestimonials = () => {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
                           {/* Play button */}
                           <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center shadow-xl transition-transform duration-300 group-hover/vid:scale-110">
+                            <div className="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center shadow-lg transition-transform duration-300 group-hover/vid:scale-110">
                               <svg className="w-6 h-6 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd"></path>
                               </svg>
