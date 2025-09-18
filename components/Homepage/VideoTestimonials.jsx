@@ -50,8 +50,8 @@ const VideoTestimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {testimonials.map((t) => (
             <div key={t.id} className="group relative">
-              <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-lg shadow-black/30">
-                <div className="relative h-full rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/10 overflow-hidden">
+              <div className="p-[2px] rounded-none bg-gradient-to-b from-white/30 via-white/10 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-lg shadow-black/30">
+                <div className="relative h-full rounded-none bg-white/5 backdrop-blur-[2px] border border-white/10 overflow-hidden">
                   {/* Accent orbs */}
                   <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/15 blur-2xl"></div>
                   <div className="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-white/5 blur-2xl"></div>
@@ -61,7 +61,7 @@ const VideoTestimonials = () => {
                   </div>
 
                   <div className="pt-4 pb-8 px-8 relative z-10">
-                    <div className="aspect-video w-full rounded-xl overflow-hidden bg-black/60 border border-white/10 relative">
+                    <div className="aspect-video w-full rounded-none overflow-hidden bg-black/60 border border-white/10 relative">
                       {playingId === t.id ? (
                         <iframe
                           className="w-full h-full"
@@ -112,7 +112,7 @@ const VideoTestimonials = () => {
         </div>
         
         <div className="text-center mt-16">
-          <button className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-3 px-10 rounded-full tracking-wider">
+          <button className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-3 px-10 rounded-none tracking-wider">
             VIEW ALL TESTIMONIALS
           </button>
         </div>

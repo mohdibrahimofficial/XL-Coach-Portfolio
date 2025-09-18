@@ -68,8 +68,8 @@ const Contact = () => {
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Form Card */}
           <div className="lg:w-1/2">
-            <div className="rounded-2xl shadow-none">
-              <div className="relative rounded-2xl bg-white border border-black/10 p-8 md:p-10 light-form shadow-sm">
+            <div className="rounded-none shadow-none">
+              <div className="relative rounded-none bg-white border border-black/10 p-8 md:p-10 light-form shadow-sm">
                 {/* Accent orbs */}
                 <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-500/10 blur-2xl"></div>
                 <div className="pointer-events-none absolute -bottom-6 -left-6 w-24 h-24 rounded-full bg-black/5 blur-2xl"></div>
@@ -86,7 +86,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-5 py-4 rounded-xl bg-white text-black border border-black/20 placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
+                        className="w-full px-5 py-4 rounded-none bg-white text-black border border-black/20 placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
                       />
                     </div>
                     <div>
@@ -99,7 +99,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-5 py-4 rounded-xl bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
+                        className="w-full px-5 py-4 rounded-none bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
                       />
                     </div>
                   </div>
@@ -114,7 +114,7 @@ const Contact = () => {
                       value={formData.phone}
                       maxLength={10}
                       onChange={handleChange}
-                      className="w-full px-5 py-4 rounded-xl bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
+                      className="w-full px-5 py-4 rounded-none bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
                     />
                   </div>
 
@@ -127,7 +127,7 @@ const Contact = () => {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      className="w-full px-5 py-4 rounded-xl bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
+                      className="w-full px-5 py-4 rounded-none bg-white border border-black/20 text-black placeholder-gray-500 outline-none focus:ring-2 focus:ring-black/30 focus:border-black/40 transition-all"
                       rows="6"
                     />
                   </div>
@@ -136,7 +136,7 @@ const Contact = () => {
                     type="submit"
                     disabled={loading}
                     aria-busy={loading}
-                    className={`bg-black text-white border-2 border-black transition-all duration-300 font-semibold rounded-full w-full py-5 cursor-pointer text-lg tracking-wider shadow hover:shadow-black/10 ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-transparent hover:text-black'}`}
+                    className={`bg-black text-white border-2 border-black transition-all duration-300 font-semibold rounded-none w-full py-5 cursor-pointer text-lg tracking-wider shadow hover:shadow-black/10 ${loading ? 'opacity-70 cursor-not-allowed' : 'hover:bg-transparent hover:text-black'}`}
                   >
                     {loading ? 'SENDING...' : 'SEND MESSAGE'}
                   </button>
@@ -154,8 +154,8 @@ const Contact = () => {
 
           {/* Contact Info Card */}
           <div className="lg:w-1/2">
-            <div className="rounded-2xl shadow-none h-full">
-              <div className="relative rounded-2xl bg-white border border-black/10 p-8 md:p-10 h-full shadow-sm">
+            <div className="rounded-none shadow-none h-full">
+              <div className="relative rounded-none bg-white border border-black/10 p-8 md:p-10 h-full shadow-sm">
                 {/* Accent orbs */}
                 <div className="pointer-events-none absolute -top-6 -left-6 w-24 h-24 rounded-full bg-indigo-500/10 blur-2xl"></div>
                 <div className="pointer-events-none absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-black/5 blur-2xl"></div>

@@ -52,7 +52,7 @@ const Header = () => {
           <a 
             href="#contact"
             aria-label="Go to Contact section"
-            className="bg-white text-black border border-white/30 hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-2.5 px-6 rounded-full tracking-wider shadow-sm hover:shadow-white/10"
+            className="bg-white text-black border border-white/30 hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-2.5 px-6 rounded-none tracking-wider shadow-sm hover:shadow-white/10"
           >
             Book a Session
           </a>

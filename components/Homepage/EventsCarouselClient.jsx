@@ -14,14 +14,14 @@ export default function EventsCarouselClient({ events = [] }) {
       {/* Custom Navigation */}
       <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-2 sm:px-4">
         <button
-          className="events-nav prev pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
+          className="events-nav prev pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Previous"
           role="button"
         >
           ‹
         </button>
         <button
-          className="events-nav next pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
+          className="events-nav next pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Next"
           role="button"
         >
@@ -41,8 +41,8 @@ export default function EventsCarouselClient({ events = [] }) {
         {events.map((event) => (
           <SwiperSlide key={event.id} className="h-full">
             <div className="group relative w-full h-full">
-              <div className="p-[1.5px] rounded-2xl bg-gradient-to-b from-white/15 via-white/8 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-sm shadow-black/20 h-full">
-                <div className="relative rounded-2xl bg-white/5 backdrop-blur-[2px] border border-white/12 overflow-hidden h-full flex flex-col min-h-[360px]">
+              <div className="p-[1.5px] rounded-none bg-gradient-to-b from-white/15 via-white/8 to-transparent transition-transform duration-300 group-hover:-translate-y-1 shadow-sm shadow-black/20 h-full">
+                <div className="relative rounded-none bg-white/5 backdrop-blur-[2px] border border-white/12 overflow-hidden h-full flex flex-col min-h-[360px]">
 
                   {/* Accent orbs (soft) */}
                   <div className="pointer-events-none absolute -top-10 -right-10 w-28 h-28 rounded-full bg-white/8 blur-3xl"></div>
@@ -55,7 +55,7 @@ export default function EventsCarouselClient({ events = [] }) {
                     </span>
                   </div>
 
-                  <div className="pt-6 px-6 flex-1">
+                  <div className="pt-6 px-6 mt-6 flex-1">
                     <h3 className="text-xl font-bold text-white mb-2 tracking-wide leading-snug">
                       {event.title}
                     </h3>
@@ -84,7 +84,7 @@ export default function EventsCarouselClient({ events = [] }) {
                     <div className="my-4 h-px w-full bg-white/10"></div>
                     <div className="flex justify-end">
                       <button 
-                        className="border border-white text-white/95 hover:bg-white hover:text-black transition-all duration-300 font-semibold rounded-full cursor-pointer px-5 py-2 tracking-wide shadow-sm hover:shadow-md hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-white/30"
+                        className="border border-white text-white/95 hover:bg-white hover:text-black transition-all duration-300 font-semibold rounded-none cursor-pointer px-5 py-2 tracking-wide shadow-sm hover:shadow-md hover:shadow-black/20 focus:outline-none focus:ring-2 focus:ring-white/30"
                       >
                         REGISTER
                       </button>

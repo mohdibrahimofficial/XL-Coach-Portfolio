@@ -28,8 +28,8 @@ const About = () => {
               <div className="pointer-events-none absolute -z-0 w-56 h-56 md:w-72 md:h-72 rounded-full bg-white/5 blur-2xl"></div>
               <div className="pointer-events-none absolute -top-6 -left-6 w-20 h-20 rounded-full bg-indigo-400/20 blur-2xl"></div>
               <div className="relative z-10 w-full max-w-md">
-                <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl shadow-black/30">
-                  <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-[1px]">
+                <div className="p-[2px] rounded-none bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl shadow-black/30">
+                  <div className="rounded-none overflow-hidden bg-white/5 backdrop-blur-[1px]">
                     <Image
                       src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
                       alt="Coach Portrait"
@@ -78,7 +78,7 @@ const About = () => {
             </div>
             
             <div className="mt-12">
-              <button className="bg-black text-white border-2 border-black hover:bg-transparent hover:text-black transition-all duration-300 font-semibold py-3 px-8 rounded-full tracking-wider">
+              <button className="bg-black text-white border-2 border-black hover:bg-transparent hover:text-black transition-all duration-300 font-semibold py-3 px-8 rounded-none tracking-wider">
                 DOWNLOAD MY BIO
               </button>
             </div>

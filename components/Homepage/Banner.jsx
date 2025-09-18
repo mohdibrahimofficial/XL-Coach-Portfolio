@@ -61,14 +61,14 @@ const Banner = () => {
                   <a
                     href="#contact"
                     aria-label="Go to Contact section"
-                    className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-full tracking-wider shadow-lg hover:shadow-white/20"
+                    className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-none tracking-wider shadow-lg hover:shadow-white/20"
                   >
                     {slide.ctaText}
                   </a>
                   <a
                     href="#testimonials"
                     aria-label="Go to Videos section"
-                    className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-full tracking-wider hover:shadow-lg hover:shadow-white/10"
+                    className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black transition-all duration-300 font-semibold text-sm md:text-lg px-5 py-2.5 md:px-10 md:py-4 rounded-none tracking-wider hover:shadow-lg hover:shadow-white/10"
                   >
                     WATCH VIDEO
                   </a>
@@ -81,8 +81,8 @@ const Banner = () => {
                 <div className="pointer-events-none absolute -z-0 w-72 h-72 md:w-96 md:h-96 rounded-full bg-white/5 blur-2xl"></div>
                 <div className="pointer-events-none absolute -top-6 -right-6 w-24 h-24 rounded-full bg-indigo-400/20 blur-2xl"></div>
                 <div className="relative z-10 w-full max-w-md">
-                  <div className="p-[2px] rounded-2xl bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-sm shadow-black/20">
-                    <div className="rounded-2xl overflow-hidden bg-white/5 backdrop-blur-[1px]">
+                  <div className="p-[2px] rounded-none bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-sm shadow-black/20">
+                    <div className="rounded-none overflow-hidden bg-white/5 backdrop-blur-[1px]">
                       <Image
                         src={slide.image}
                         alt="Professional coach portrait"
