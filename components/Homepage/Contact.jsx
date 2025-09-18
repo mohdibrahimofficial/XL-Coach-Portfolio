@@ -51,7 +51,7 @@ const Contact = () => {
 
   return (
     <div id="contact" className="relative bg-white text-black py-24 px-6 overflow-hidden">
-      <WaveDivider position="top" height={100} fill="#000000" />
+      {/* <WaveDivider position="top" height={100} fill="#000000" /> */}
       {/* Decorative gradient orbs (subtle) */}
       <div className="pointer-events-none absolute top-[80px] -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/15 blur-3xl"></div>
       <div className="pointer-events-none absolute bottom-20  -right-32 w-[32rem] h-[32rem] rounded-full bg-pink-500/10 blur-3xl"></div>
@@ -60,7 +60,7 @@ const Contact = () => {
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-black mb-6 tracking-wider">CONTACT ME</h2>
           <div className="w-24 h-1 bg-black mx-auto mb-6"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-light">
+          <p className="text-xl text-gray-900 max-w-3xl mx-auto font-light">
             Ready to start your transformation? Reach out today.
           </p>
         </div>
@@ -170,7 +170,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Phone</h4>
-                      <p className="text-gray-600 mt-2">+1 (555) 123-4567</p>
+                      <p className="text-gray-900 mt-2">+1 (555) 123-4567</p>
                     </div>
                   </div>
 
@@ -182,7 +182,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Email</h4>
-                      <p className="text-gray-600 mt-2">info@coachportfolio.com</p>
+                      <p className="text-gray-900 mt-2">info@coachportfolio.com</p>
                     </div>
                   </div>
 
@@ -195,7 +195,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Office</h4>
-                      <p className="text-gray-600 mt-2">123 Success Avenue<br />New York, NY 10001</p>
+                      <p className="text-gray-900 mt-2">123 Success Avenue<br />New York, NY 10001</p>
                     </div>
                   </div>
                 </div>
@@ -205,17 +205,13 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-black text-xl mb-6 tracking-wider">OFFICE HOURS</h4>
                   <div className="space-y-3">
-                    <p className="text-gray-600 flex justify-between"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></p>
-                    <p className="text-gray-600 flex justify-between"><span>Saturday</span><span>10:00 AM - 4:00 PM</span></p>
-                    <p className="text-gray-600 flex justify-between"><span>Sunday</span><span>Closed</span></p>
+                    <p className="text-gray-900 flex justify-between"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></p>
+                    <p className="text-gray-900 flex justify-between"><span>Saturday</span><span>10:00 AM - 4:00 PM</span></p>
+                    <p className="text-gray-900 flex justify-between"><span>Sunday</span><span>Closed</span></p>
                   </div>
                 </div>
 
-                {/* <div className="mt-10">
-                  <button className="bg-white text-black border-2 border-white hover:bg-transparent hover:text-white transition-all duration-300 font-semibold py-3 px-8 rounded-full tracking-wider shadow-lg hover:shadow-white/10">
-                    SCHEDULE A CALL
-                  </button>
-                </div> */}
+                
               </div>
             </div>
           </div>

@@ -3,12 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="relative bg-black text-white py-16 px-6 overflow-hidden">
-      {/* Wave top border */}
-      <div aria-hidden className="pointer-events-none absolute top-0 left-0 right-0 text-white">
-        <svg className="w-full h-20" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor" d="M0,64L80,58.7C160,53,320,43,480,42.7C640,43,800,53,960,58.7C1120,64,1280,64,1360,64L1440,64L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z" />
-        </svg>
-      </div>
+      
       <div className="max-w-7xl mt-5 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
           <div className="md:col-span-1">

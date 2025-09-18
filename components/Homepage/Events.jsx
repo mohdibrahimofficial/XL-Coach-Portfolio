@@ -134,7 +134,7 @@ const Events = () => {
 
   return (
     <div id="events" className="relative bg-black py-24 px-6 overflow-hidden">
-      <WaveDivider position="top" height={100} fill="#ffffff" />
+      {/* <WaveDivider position="top" height={100} fill="#ffffff" /> */}
 
       {/* Decorative gradient orbs (match banner style) */}
       <div className="pointer-events-none absolute top-[80px] -left-24 w-[28rem] h-[28rem] rounded-full bg-indigo-500/20 blur-3xl"></div>
