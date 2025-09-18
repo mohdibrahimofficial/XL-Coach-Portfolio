@@ -143,6 +143,7 @@ const Events = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold text-white mb-6 tracking-wider">UPCOMING EVENTS</h2>
+          <div className="w-24 h-1 bg-white mx-auto mb-6"></div>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto font-light">
             Join me at these transformative events designed to accelerate your personal and professional growth
           </p>
