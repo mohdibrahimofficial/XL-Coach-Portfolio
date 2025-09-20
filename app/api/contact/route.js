@@ -22,6 +22,8 @@ export async function POST(req) {
       EMAIL_TO
     } = process.env;
     const { EMAIL_BRAND_NAME = 'New Contact', EMAIL_LOGO_URL = '' } = process.env;
+    // Optional Google Sheets integration via Google Apps Script Web App
+    // const { SPEED_SHEET_URL = '', SPEED_SHEET_ID = '' } = process.env;
 
     if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !EMAIL_FROM || !EMAIL_TO) {
       return new Response(
@@ -116,6 +118,8 @@ export async function POST(req) {
       text: `Name: ${name}\nEmail: ${email}${phone ? `\nPhone: ${phone}` : ''}\n\n${message}`,
       html,
     });
+
+    
 
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully.' }),

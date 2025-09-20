@@ -14,14 +14,14 @@ export default function EventsCarouselClient({ events = [] }) {
       {/* Custom Navigation */}
       <div className="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 flex items-center justify-between px-2 sm:px-4">
         <button
-          className="events-nav prev pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
+          className="events-nav prev pointer-events-auto -left-6 md:-left-10 relative inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Previous"
           role="button"
         >
           ‹
         </button>
         <button
-          className="events-nav next pointer-events-auto inline-flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
+          className="events-nav next pointer-events-auto -right-6 md:-right-10 relative inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-none bg-white text-black border border-white/20 shadow-md hover:bg-transparent hover:text-white transition cursor-pointer"
           aria-label="Next"
           role="button"
         >

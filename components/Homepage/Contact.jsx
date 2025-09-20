@@ -170,7 +170,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Phone</h4>
-                      <p className="text-gray-900 mt-2">+1 (555) 123-4567</p>
+                      <p className="text-gray-900 text-[14px] sm:text-[16px] mt-2">+1 (555) 123-4567</p>
                     </div>
                   </div>
 
@@ -182,7 +182,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Email</h4>
-                      <p className="text-gray-900 mt-2">info@coachportfolio.com</p>
+                      <p className="text-gray-900 text-[14px] sm:text-[16px] mt-2">info@coachportfolio.com</p>
                     </div>
                   </div>
 
@@ -195,7 +195,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-bold text-black text-lg tracking-wider">Office</h4>
-                      <p className="text-gray-900 mt-2">123 Success Avenue<br />New York, NY 10001</p>
+                      <p className="text-gray-900 text-[14px] sm:text-[16px] mt-2">123 Success Avenue<br />New York, NY 10001</p>
                     </div>
                   </div>
                 </div>
@@ -205,9 +205,9 @@ const Contact = () => {
                 <div>
                   <h4 className="font-bold text-black text-xl mb-6 tracking-wider">OFFICE HOURS</h4>
                   <div className="space-y-3">
-                    <p className="text-gray-900 flex justify-between"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></p>
-                    <p className="text-gray-900 flex justify-between"><span>Saturday</span><span>10:00 AM - 4:00 PM</span></p>
-                    <p className="text-gray-900 flex justify-between"><span>Sunday</span><span>Closed</span></p>
+                    <p className="text-gray-900 flex text-[13px] sm:text-[16px] justify-between"><span>Monday - Friday</span><span>9:00 AM - 6:00 PM</span></p>
+                    <p className="text-gray-900 flex text-[13px] sm:text-[16px] justify-between"><span>Saturday</span><span>10:00 AM - 4:00 PM</span></p>
+                    <p className="text-gray-900 flex text-[13px] sm:text-[16px] justify-between"><span>Sunday</span><span>Closed</span></p>
                   </div>
                 </div>
 
